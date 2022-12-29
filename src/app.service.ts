@@ -18,10 +18,9 @@ export class AppService {
 
     const page = await browser.newPage();
 
-    const cssPath = path.join(__dirname, '../templates/style.css');
 
     await page.setContent(templateHtml, { waitUntil: 'networkidle0' });
-    await page.addStyleTag({ path: cssPath });
+    await page.addStyleTag({ url:'https://cdn.tailwindcss.com' });
 
     const buffer = await page.pdf({
       format: 'A4',
